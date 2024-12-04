@@ -59,3 +59,11 @@ JSON
   "NPI": {},
   "Creation_Date": {}
 }
+
+Simplified Architecture
+
+Users: Access the application through the Angular web component.
+Angular Web App: Interacts directly with AppSync to query or fetch data.
+AWS AppSync: Manages GraphQL APIs and interacts directly with:
+Amazon OpenSearch: For indexing and querying SAM data.
+AWS S3: For storing raw SAM data.
