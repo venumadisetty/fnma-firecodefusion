@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "name": "Sample Name 1",
+      "classification": "Type A",
+      "sam": "SAM001",
+      "cageCode": "CAGE001"
+    },
+    {
+      "id": 2,
+      "name": "Sample Name 2",
+      "classification": "Type B",
+      "sam": "SAM002",
+      "cageCode": "CAGE002"
+    },
+    {
+      "id": 3,
+      "name": "Sample Name 3",
+      "classification": "Type C",
+      "sam": "SAM003",
+      "cageCode": "CAGE003"
+    }
+  ]
+  

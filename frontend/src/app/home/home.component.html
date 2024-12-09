@@ -1,0 +1,58 @@
+<div class="main-panel">
+    <div class="dv-search">
+        <!-- Basic Search Section -->
+        <div class="dv-basic-search">
+            <h3>Basic Search</h3>
+            <form (ngSubmit)="onBasicSearchSubmit()">
+                <label for="samInput">SAM Search Input</label>
+                <input type="text" id="samInput" name="samInput" [(ngModel)]="basicSearch.samInput"
+                    style="width: 100%; margin-bottom: 10px;" required />
+                <div style="margin-bottom: 10px;">
+                    <input type="checkbox" id="name" [(ngModel)]="basicSearch.filters.name" name="name" />
+                    <label for="name">Name</label><br />
+                    <input type="checkbox" id="classification" [(ngModel)]="basicSearch.filters.classification"
+                        name="classification" />
+                    <label for="classification">Classification</label><br />
+                    <input type="checkbox" id="sam" [(ngModel)]="basicSearch.filters.sam" name="sam" />
+                    <label for="sam">SAM</label><br />
+                    <input type="checkbox" id="cageCode" [(ngModel)]="basicSearch.filters.cageCode" name="cageCode" />
+                    <label for="cageCode">Cage Code</label><br />
+                </div>
+                <button type="submit">Submit Search</button>
+            </form>
+        </div>
+        <!-- NLP Based Semantic Search Section -->
+        <div class="dv-adv-search">
+            <h3>NLP Based Gen AI Semantic Search</h3>
+            <form (ngSubmit)="onSemanticSearchSubmit()">
+                <textarea [(ngModel)]="semanticSearch.text" name="semanticText" rows="5"
+                    style="width: 100%; margin-bottom: 10px;" placeholder="Enter free form text" required></textarea>
+                <button type="submit">Submit Search</button>
+            </form>
+        </div>
+    </div>
+    <!-- Results Table -->
+  <div class="dv-res" *ngIf="showSearchResults">
+    <h3>Search Results</h3>
+    <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Classification</th>
+          <th>SAM</th>
+          <th>Cage Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tableData">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.classification }}</td>
+          <td>{{ item.sam }}</td>
+          <td>{{ item.cageCode }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
