@@ -58,8 +58,18 @@ input[type='text'] {
   text-align: left; /* Keep text aligned to the left for readability */
 }
 
+.dv-basic-search{
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px
+}
 .dv-adv-search {
   width: 400px; /* Adjust as needed for advanced search box */
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px
 }
 
 
