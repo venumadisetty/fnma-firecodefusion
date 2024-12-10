@@ -8,7 +8,7 @@
                 <label for="samInput">SAM Search Input</label>
                 <input type="text" id="samInput" name="samInput" [(ngModel)]="basicSearch.samInput"
                        style="width: 100%; margin-bottom: 10px;" required />
-                <div style="display: flex; justify-content: space-between;">
+                <div style="display: flex; column-gap: 100px;">
                     <div>
                         <input type="radio" id="sam" [(ngModel)]="basicSearch.filters.sam" name="filterGroup" value="SAMNumber" (change)="onRadioChange($event)"/>
                         <label for="sam">SAM</label><br />
