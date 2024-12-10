@@ -6,19 +6,38 @@
             <form (ngSubmit)="onBasicSearchSubmit()">
                 <label for="samInput">SAM Search Input</label>
                 <input type="text" id="samInput" name="samInput" [(ngModel)]="basicSearch.samInput"
-                    style="width: 100%; margin-bottom: 10px;" required />
-                <div style="margin-bottom: 10px;">
-                    <input type="checkbox" id="name" [(ngModel)]="basicSearch.filters.name" name="name" />
-                    <label for="name">Name</label><br />
-                    <input type="checkbox" id="classification" [(ngModel)]="basicSearch.filters.classification"
-                        name="classification" />
-                    <label for="classification">Classification</label><br />
-                    <input type="checkbox" id="sam" [(ngModel)]="basicSearch.filters.sam" name="sam" />
-                    <label for="sam">SAM</label><br />
-                    <input type="checkbox" id="cageCode" [(ngModel)]="basicSearch.filters.cageCode" name="cageCode" />
-                    <label for="cageCode">Cage Code</label><br />
+                       style="width: 100%; margin-bottom: 10px;" required />
+                <div style="display: flex; justify-content: space-between;">
+                    <div>
+                        <input type="radio" id="sam" [(ngModel)]="basicSearch.filters.sam" name="filterGroup" value="SAMNumber" (change)="onRadioChange($event)"/>
+                        <label for="sam">SAM</label><br />
+
+                        <input type="radio" id="firstName" [(ngModel)]="basicSearch.filters.firstName" name="filterGroup" value="First" (change)="onRadioChange($event)"/>
+                        <label for="firstName">First Name</label><br />
+
+                        <input type="radio" id="lastName" [(ngModel)]="basicSearch.filters.lastName" name="filterGroup" value="Last" (change)="onRadioChange($event)"/>
+                        <label for="lastName">Last Name</label><br />
+
+                        <input type="radio" id="address" [(ngModel)]="basicSearch.filters.address" name="filterGroup" value="Address1" (change)="onRadioChange($event)"/>
+                        <label for="address">Address 1</label><br />
+                    </div>
+
+                    <div>
+                        <input type="radio" id="classification" [(ngModel)]="basicSearch.filters.classification" name="filterGroup" value="Classification" (change)="onRadioChange($event)"/>
+                        <label for="classification">Classification</label><br />
+
+                        <input type="radio" id="firmName" [(ngModel)]="basicSearch.filters.firmName" name="filterGroup" value="Name" (change)="onRadioChange($event)"/>
+                        <label for="firmName">Firm Name</label><br />
+
+                        <input type="radio" id="exclusionAgency" [(ngModel)]="basicSearch.filters.exclusionAgency" name="filterGroup" value="ExclusionAgency" (change)="onRadioChange($event)"/>
+                        <label for="exclusionAgency">Exclusion Agency</label><br />
+
+                        <input type="radio" id="uniqueID" [(ngModel)]="basicSearch.filters.uniqueID" name="filterGroup" value="UniqueEntityID" (change)="onRadioChange($event)"/>
+                        <label for="uniqueID">Unique Entity ID</label><br />
+                    </div>
                 </div>
-                <button type="submit">Submit Search</button>
+
+                <button type="submit" class="submitSearch">Submit Search</button>
             </form>
         </div>
         <!-- NLP Based Semantic Search Section -->
@@ -26,33 +45,50 @@
             <h3>NLP Based Gen AI Semantic Search</h3>
             <form (ngSubmit)="onSemanticSearchSubmit()">
                 <textarea [(ngModel)]="semanticSearch.text" name="semanticText" rows="5"
-                    style="width: 100%; margin-bottom: 10px;" placeholder="Enter free form text" required></textarea>
+                          style="width: 100%; margin-bottom: 10px;" placeholder="Enter free form text" required></textarea>
                 <button type="submit">Submit Search</button>
             </form>
         </div>
     </div>
-    <!-- Results Table -->
-  <div class="dv-res" *ngIf="showSearchResults">
-    <h3>Search Results</h3>
-    <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Classification</th>
-          <th>SAM</th>
-          <th>Cage Code</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of tableData">
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.classification }}</td>
-          <td>{{ item.sam }}</td>
-          <td>{{ item.cageCode }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+    <div class="dv-res" *ngIf="samSearchResults && samSearchResults.length > 0">
+        <h3>SAM Search API Results</h3>
+        <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+            <tr>
+                <th>SAM Number</th>
+                <th>Classification</th>
+                <th>Firm Name</th>
+                <th>Prefix</th>
+                <th>First</th>
+                <th>Middle</th>
+                <th>Last</th>
+                <th>Suffix</th>
+                <th>Address 1</th>
+                <th>Exclusion Agency</th>
+                <th>Active Date</th>
+                <th>Termination Date</th>
+                <th>Unique Entity ID</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of samSearchResults">
+                <td>{{ item.SAMNumber || '' }}</td>
+                <td>{{ item.Classification || '' }}</td>
+                <td>{{ item.Name || '' }}</td>
+                <td>{{ item.Prefix || '' }}</td>
+                <td>{{ item.First || '' }}</td>
+                <td>{{ item.Middle || '' }}</td>
+                <td>{{ item.Last || '' }}</td>
+                <td>{{ item.Suffix || '' }}</td>
+                <td>{{ item.Address1 || '' }}</td>
+                <td>{{ item.ExcludingAgency || '' }}</td>
+                <td>{{ item.ActiveDate || '' }}</td>
+                <td>{{ item.TerminationDate || '' }}</td>
+                <td>{{ item.UniqueEntityID || '' }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+

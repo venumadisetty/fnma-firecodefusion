@@ -1,6 +1,12 @@
 .main-panel {
   max-width: 460px;
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* Ensures horizontal centering of children */
+  justify-content: center; /* Ensures vertical centering if panel has height */
+  text-align: center;
 }
 
 .header {
@@ -16,8 +22,10 @@ h2 {
 
 .title {
   text-align: center;
-  margin-right: 15px;
-
+  margin: 0;
+}
+.submitSearch{
+  margin-top: 10px;
 }
 
 button {
@@ -36,24 +44,102 @@ input[type='text'] {
   font-size: 14px;
 }
 
-.dv-basic-search {
-  border: 1px solid black;
+/* Ensure dv-basic-search is centered */
+.dv-basic-search,
+.dv-adv-search {
+  border: 1px solid #ccc; /* Lighter gray border instead of black */
+  background-color: #fafafa; /* Light background to make it less stark */
+  border-radius: 5px; /* Rounded corners for a softer look */
   padding: 20px;
-  width: 300px;
+  width: 300px; /* or 400px for dv-adv-search, adjust as needed */
+  margin: 20px auto; /* Center the box */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow to add depth */
+  font-family: Arial, sans-serif;
+  text-align: left; /* Keep text aligned to the left for readability */
 }
 
 .dv-adv-search {
-  margin-top: 30px;
-  border: 1px solid black;
-  padding: 20px;
-  width: 400px;
+  width: 400px; /* Adjust as needed for advanced search box */
 }
 
+
 .dv-search {
-  margin: 20px auto;
+  margin: 20px 0;
   font-family: Arial, sans-serif;
 }
 
 .dv-res {
-  margin-top: 30px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #009BE4;
+      color: #ffffff;
+      font-size: 16px;
+    }
+
+    td {
+      font-size: 14px;
+      color: #333;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2faff;
+    }
+
+    tr:hover {
+      background-color: #e6f4ff;
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+    margin-top: 20px;
+  }
+
+
+
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #009BE4;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0085c2;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  }
 }
