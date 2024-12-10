@@ -39,6 +39,11 @@ button:hover {
   background-color: #f0f0f0;
 }
 
+.button-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
 textarea,
 input[type='text'] {
   font-size: 15px;
@@ -152,5 +157,11 @@ input[type='text'] {
       background-color: #ccc;
       cursor: not-allowed;
     }
+  }
+
+  .link-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
   }
 }

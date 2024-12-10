@@ -47,12 +47,15 @@
             <form (ngSubmit)="onSemanticSearchSubmit()">
                 <textarea [(ngModel)]="semanticSearch.text" name="semanticText" rows="5"
                           style="width: 100%; margin-bottom: 10px;" placeholder="Enter free form text" required></textarea>
-                <button type="submit">Submit Search</button>
+                <button type="submit" class="submitSearch">Submit Search</button>
             </form>
         </div>
     </div>
 
     <div class="dv-res" *ngIf="samSearchResults && samSearchResults.length > 0">
+        <div class="link-container">
+            <a href="#" >Export to CSV</a>
+        </div>
         <h3>SAM Search API Results</h3>
         <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
             <thead>
