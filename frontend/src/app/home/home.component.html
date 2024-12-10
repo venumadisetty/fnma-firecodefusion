@@ -73,7 +73,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let item of samSearchResults">
+            <tr *ngFor="let item of pagedResults">
                 <td>{{ item.SAMNumber || '' }}</td>
                 <td>{{ item.Classification || '' }}</td>
                 <td>{{ item.Name || '' }}</td>
@@ -90,6 +90,8 @@
             </tr>
             </tbody>
         </table>
+        <mat-paginator [length]="samSearchResults.length" [pageSize]="10" (page)="onPageChange($event)">
+        </mat-paginator>
     </div>
 </div>
 
