@@ -1,0 +1,12 @@
+=====================================================================================>>>
+Good Morning
+What kind of questions can I ask you today?
+
+a) Can you get all details of Classification type Firm or Special Entity or Vessel whose name is "USMSFR" from the data source in a html format?
+b) Can you get all the details of Classification type Individual whose first is "ABD-AL-HAMID" and last is "AL-MASLI" from the data source in a json format?
+c) Can you get only the following details first, last, address, city for the given SAM Number S4MR3MR9B?
+d) How many records do you see associated with this SAM Number S4MR3MR9B?
+e) select classification, name, ExcludingAgency from data source where address is "1490 W CHANDLER BLVD"?
+f) Can you count number of records presented from "TEMPLE CITY"?
+g) What is the address of the name associated with "1ST PREFERRED DIAGNOSTIC"?
+=====================================================================================>>>
