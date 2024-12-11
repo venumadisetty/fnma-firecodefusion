@@ -10,3 +10,10 @@ e) select classification, name, ExcludingAgency from data source where address i
 f) Can you count number of records presented from "TEMPLE CITY"?
 g) What is the address of the name associated with "1ST PREFERRED DIAGNOSTIC"?
 =====================================================================================>>>
+
+
+DEMO
+ALIAS Based Search
+
+1) get me the results with string ARIA in html format
+2) get me the results with string NORTH from datsource in html format
